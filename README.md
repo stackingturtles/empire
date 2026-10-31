@@ -1,5 +1,7 @@
 # Empire 2D — Delphi to web
 
+[Nederlands: LEESMIJ.md](LEESMIJ.md)
+
 A browser-based reimplementation of the **Empire 2D structural frame-analysis application**, built with React and TypeScript in [`web/`](web/).
 
 **Status: working core prototype, not a validated engineering replacement.** The web solver is tested against analytical beam/frame cases, but has not been compared with the original Windows executable or representative `.EL2` projects. Do not use this preview for engineering design or safety decisions.
@@ -28,6 +30,23 @@ npm run test:e2e # Browser workflow tests; Google Chrome required by default
 ```
 
 The Playwright configuration uses locally installed Chrome. To use Playwright's downloaded Chromium instead, remove `channel: 'chrome'` from `web/playwright.config.ts` and run `npx playwright install chromium` from `web/`.
+
+## Deploy to Vercel
+
+The Vercel project is **`empire`** under the **Stacking Turtles** team (`stacking-turtles`), connected to `stackingturtles/empire` on GitHub. [Open the project dashboard](https://vercel.com/stacking-turtles/empire).
+
+Project settings: root directory **`web`**, framework **Vite**, install command **`npm ci`**, build command **`npm run build`**, and output directory **`dist`**. No application environment variables or backend services are required.
+
+To create a preview deployment from a clean checkout of this repository, run from the repository root:
+
+```sh
+vercel link --repo --scope stacking-turtles --yes
+vercel deploy --project empire --scope stacking-turtles --target=preview --yes
+```
+
+Use the explicit `--target=preview` flag: Vercel may otherwise treat the first deployment of a new project as production. Local `.vercel/` link metadata is ignored by Git. The original legacy archive is not part of this repository or its deployment.
+
+The GitHub integration automatically deploys future pushes: **`main` publishes to production**, while other branches create previews. Only push to `main` when a production release is intended.
 
 ## What works
 

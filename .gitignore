@@ -2,7 +2,9 @@
 /*
 !/.gitignore
 !/README.md
+!/LEESMIJ.md
 !/docs/
 !/web/
 
 .DS_Store
+.vercel
