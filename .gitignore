@@ -1,0 +1,8 @@
+# Publish only the web rebuild. The legacy Delphi archive stays local.
+/*
+!/.gitignore
+!/README.md
+!/docs/
+!/web/
+
+.DS_Store
